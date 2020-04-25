@@ -1,0 +1,25 @@
+
+    {%if messages %}
+    {%for message in messages %}
+    {% if message.tags == 'success' %}
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">X</button>
+
+        {{message}}
+    </div>
+    {% else %}
+    <div class="alert alert-danger">
+        {{message}}
+    </div>
+   {% endif %}
+    {% endfor %}
+    {% endif %}
+
+    <div class="row">
+
+        {% block content %}
+
+        {% endblock %}
+
+
+    </div>

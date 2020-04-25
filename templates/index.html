@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+        <div class="col">
+            <h1>{{title}}</h1>
+        <ul class="list-group">
+            {% for product in products %}
+                <li class="list-group-item"> {{product.title}}
+                    <!--Este es un comentario html-->
+                    {# Este es un comentario de Django #}
+                    {% if product.stock %}
+                        <span class="text-success"> Disponible</span>
+                    {% else %}
+                    <span class="text-danger"> No disponible</span>
+                    {% endif %}
+                
+            </li>
+            {% endfor %}
+
+        </ul>
+
+
+        </div>
+
+{% endblock %}
+
+
+
+{% load static %}
