@@ -6,19 +6,20 @@ from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth import authenticate
 from .forms import RegisterForm
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
+from products.models import Product
+from users.models import User
+
+#Vistas basadas en clases. Agilizas el proceso porque usas django, mover a view del proyecto
 
 def index(request):
+    products = Product.objects.all().order_by('-id')
+
     return render(request, 'index.html', {
         #contexto
         'message': 'Listado de produtos',
         'title': 'Productos',
-        'products': [
-            {'title': 'zapato deportivo', 'price': '100', 'stock': True},
-            {'title': 'Camisa', 'price': '60', 'stock': True},
-            {'title': 'Camisa S', 'price': '60', 'stock': False},
-
-        ]
+        'products': products,
         })
 
 

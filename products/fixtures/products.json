@@ -1,0 +1,74 @@
+[
+{
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "title": "Playera para caballero",
+        "description": "Playera para caballero",
+        "price": "15.00",
+        "slug": "playera-caballero",
+        "created_at": "2020-04-26T04:36:55.253Z",
+        "image": "products/EV_dE9BWkAIBQyo.jfif"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "title": "Playera para dama",
+        "description": "Playera para dama talla M, S, L",
+        "price": "10.00",
+        "slug": "playera-dama",
+        "created_at": "2020-04-26T04:38:30.749Z",
+        "image": "products/norkys-bastista.jpg"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "title": "Mochila",
+        "description": "Mochila",
+        "price": "30.00",
+        "slug": "mochila",
+        "created_at": "2020-04-26T04:55:29.439Z",
+        "image": ""
+    }
+},
+{
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "title": "Lampara",
+        "description": "Lampara de 8 metros",
+        "price": "102.00",
+        "slug": "lampara",
+        "created_at": "2020-04-26T05:05:10.342Z",
+        "image": "products/D_NQ_NP_631603-MLV30520370594_052019-V.jpg"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+        "title": "Lampara",
+        "description": "Esta es una nueva lampara LED",
+        "price": "15.00",
+        "slug": "lampara-6c81e6f6",
+        "created_at": "2020-04-26T05:20:15.824Z",
+        "image": ""
+    }
+},
+{
+    "model": "products.product",
+    "pk": 8,
+    "fields": {
+        "title": "Freidora de Aire",
+        "description": "Freidora de Aire Grande",
+        "price": "100.00",
+        "slug": "freidora-de-aire",
+        "created_at": "2020-04-26T16:03:21.604Z",
+        "image": "products/freidora-de-aire-home-elements-he-af516-18-lt-D_NQ_NP_818746-MLV32876931696_112019-F.jpg"
+    }
+}
+]

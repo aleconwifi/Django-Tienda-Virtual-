@@ -31,6 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'carts',
+    'users',
+    'products',
+    'categories',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,6 +54,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'tiendovirtual.urls'
+
+
+#dejaremos de usar el modelo User que Django provee, por el modelo User que hemos creado
+AUTH_USER_MODEL = 'users.User'
 
 TEMPLATES = [
     {
@@ -121,3 +129,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -1,0 +1,25 @@
+{% load static %}
+        
+        
+          <!-- Producto en tarjetas-->
+          <div class="card text-center h-100">
+            {% if product.image %}
+            <img class="card-img-top" src="{{ product.image.url}}" alt="Card image cap" style=" height: 200px; object-fit: cover;">
+            {% else %}
+            <img class="card-img-top" src="{% static 'images/aimagenot.png' %}" alt="Card image cap" style=" height: 200px; object-fit: cover;">
+
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{product.title}}</h5>
+              <p class="card-text"> {{product.description }}</p>
+              
+            </div>
+            <div class="card-footer text-center"> 
+                  
+                <a href="{% url 'products:product' product.slug %}" class="btn btn-warning"
+                        id="center"> 
+                    Ver más
+            </a> 
+                  
+            </div> 
+          </div>

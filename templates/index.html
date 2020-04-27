@@ -5,18 +5,12 @@
         <div class="col">
             <h1>{{title}}</h1>
         <ul class="list-group">
-            {% for product in products %}
-                <li class="list-group-item"> {{product.title}}
-                    <!--Este es un comentario html-->
-                    {# Este es un comentario de Django #}
-                    {% if product.stock %}
-                        <span class="text-success"> Disponible</span>
-                    {% else %}
-                    <span class="text-danger"> No disponible</span>
-                    {% endif %}
-                
-            </li>
-            {% endfor %}
+            <br>
+       <h4 class="text-center"> {{message}} </h4>
+       {% include 'products/snippets/search.html' %}
+
+       {% include 'products/snippets/list.html' %}
+
 
         </ul>
 

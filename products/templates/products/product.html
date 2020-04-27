@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+<div class="col-3 mt-3"> 
+{% if product.image %}
+    <img src="{{ product.image.url}}" alt="{{product.title}}" width="200" height="200">
+{% else %}
+    <img class="card-img-top" src="{% static 'images/aimagenot.png' %}" alt="Card image cap" style=" height: 200px; object-fit: cover;">
+{% endif %}
+</div>
+
+
+<div class="col mt-3">
+
+    <div class="h1">
+    {{product.title}}
+    </div>
+
+        <div class="h5 font-weight-bold">
+        Precio: <span class="text-danger">${{product.price}}</span>
+            </div>
+
+        <div class="">
+        <p>{{product.description}} </p>
+        </div>
+</div>
+
+
+{% endblock %}
