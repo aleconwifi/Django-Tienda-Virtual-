@@ -31,8 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'carts',
     'users',
+    'carts',
     'products',
     'categories',
     'django.contrib.admin',

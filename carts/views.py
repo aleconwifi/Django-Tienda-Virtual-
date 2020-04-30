@@ -1,20 +1,37 @@
 from django.shortcuts import render
-
+from products.models import Product
+from django.shortcuts import redirect, get_object_or_404
+from .models import Cart 
+from .utils import get_or_create_cart
 # Create your views here.
 
 def cart(request):
-    #Crear una session
-    request.session['cart_id'] = '123'
+    cart = get_or_create_cart(request)
 
-    #session es un diccionario, obtener su valor
-    valor = request.session.get('cart_id')
-    print(valor)
-
-    #Eliminar una session
-    request.session['cart_id'] = None
-    #A partir de la sesion se va a trabajar con el carrito de compras, si la session se encuentra
-    #en la peticion, obtenemos el carrito de compras de la base de datos, en caso contrario creamos el carrito
     return render(request, 'carts/cart.html', {
-
-
+        #mandando el objeto cart al template
+        'cart':cart
     })
+
+def add(request):
+    cart = get_or_create_cart(request)
+    product = get_object_or_404(Product, pk=request.POST.get('product_id'))
+
+    #'product_id' es el nombre del formulario html donde obtiene el id del producto
+    product = Product.objects.get(pk=request.POST.get('product_id'))
+    #cart es una instacia del modelo por lo que para acceder a atributo products es la relacion ManytoMany
+    cart.products.add(product)
+
+    return render(request, 'carts/add.html', {
+        'product': product
+    })
+
+def remove(request):
+    cart = get_or_create_cart(request)
+    product = get_object_or_404(Product, pk=request.POST.get('product_id'))
+    #'product_id' es el nombre del formulario html donde obtiene el id del producto
+    product = Product.objects.get(pk=request.POST.get('product_id'))
+    #cart es una instacia del modelo por lo que para acceder a atributo products es la relacion ManytoMany
+    cart.products.remove(product)
+
+    return redirect('carts:cart')

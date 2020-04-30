@@ -1,9 +1,70 @@
  {% extends 'base.html' %}
-
+{% load product_extras %}
 
 {% block  content %}
 
-<h2>Carrito de Compras</h2>
+{% if cart.products.exists %}
+<div class="col-8">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th  scope="row">Producto</th>
+                    <th  scope="row">Cantidad</th>
+                    <th  scope="row">Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in cart.products.all %}
 
+                <tr>
+                    <th>{{ forloop.couter }}</th>
+                    <th> 
+
+                        {% if product.image %}
+                        <img src="{{ product.image.url}}" alt="Imagen del Producto" width="60" height="60">
+                        {% endif%}
+                    </th>
+                    <th>
+                        <a href="{% url 'products:product' product.slug %}">
+                            {{ product.title}}
+                        </a>
+                        {% include 'carts/snippets/remove.html'%}
+                    </th>
+                    <th>
+                        1
+                    </th>
+                    <th>
+                        <span class="font-weight-bold text-danger">{{product.price | price_format}}</span>
+                    </th>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+
+<div class="col mt-4">
+  <div class="card mt-4">
+    <div class="card-body">
+    <div class="font-weight-bold">
+        Subtotal: ({{ cart.products.count}}) <span class="text-danger">{{ cart.subtotal | price_format }}</span>
+    </div>
+    <div class="mt-2">
+        <a href="#" class="btn btn-warning">Proceder al pago</a>
+    </div>
+    </div>
+   </div>
+</div>
+
+
+{% else %}
+<div class="col">
+    <p class="h3">Tu carrito de compras está vacío.</p>
+    <a href="{% url 'index' %}">Seguir comprando</a>
+
+</div>
+{% endif %}
 
 {% endblock  %}
