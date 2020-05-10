@@ -10,14 +10,15 @@
                 <tr>
                     <th></th>
                     <th></th>
-                    <th  scope="row">Producto</th>
-                    <th  scope="row">Cantidad</th>
-                    <th  scope="row">Precio</th>
+                    <th  scope="row">🛍️ Producto</th>
+                    <th  scope="row">🧮 Cantidad</th>
+                    <th  scope="row">💲 Precio</th>
                 </tr>
             </thead>
             <tbody>
-                {% for product in cart.products.all %}
 
+                {% for cp in cart.products_related %}
+                    {% with product=cp.product %}
                 <tr>
                     <th>{{ forloop.couter }}</th>
                     <th> 
@@ -33,13 +34,13 @@
                         {% include 'carts/snippets/remove.html'%}
                     </th>
                     <th>
-                        1
+                        {{ cp.quantity}}
                     </th>
                     <th>
                         <span class="font-weight-bold text-danger">{{product.price | price_format}}</span>
                     </th>
                 </tr>
-
+                    {% endwith %}
                 {% endfor %}
             </tbody>
         </table>
@@ -52,7 +53,7 @@
         Subtotal: ({{ cart.products.count}}) <span class="text-danger">{{ cart.subtotal | price_format }}</span>
     </div>
     <div class="mt-2">
-        <a href="#" class="btn btn-warning">Proceder al pago</a>
+        <a href="{% url 'orders:order' %}" class="btn btn-success">💳 Proceder al pago</a>
     </div>
     </div>
    </div>

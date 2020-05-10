@@ -32,7 +32,7 @@
         "price": "30.00",
         "slug": "mochila",
         "created_at": "2020-04-26T04:55:29.439Z",
-        "image": ""
+        "image": "products/13190111_11_2048x.jpg"
     }
 },
 {
@@ -57,18 +57,6 @@
         "slug": "lampara-6c81e6f6",
         "created_at": "2020-04-26T05:20:15.824Z",
         "image": ""
-    }
-},
-{
-    "model": "products.product",
-    "pk": 8,
-    "fields": {
-        "title": "Freidora de Aire",
-        "description": "Freidora de Aire Grande",
-        "price": "100.00",
-        "slug": "freidora-de-aire",
-        "created_at": "2020-04-26T16:03:21.604Z",
-        "image": "products/freidora-de-aire-home-elements-he-af516-18-lt-D_NQ_NP_818746-MLV32876931696_112019-F.jpg"
     }
 }
 ]

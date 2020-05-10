@@ -12,6 +12,10 @@
 
     <div class="container">
         {% include 'messages.html' %}
+        
+        {% block breadcrumb %}
+
+        {% endblock %}
         <div class="row">
 
             {% block content %}

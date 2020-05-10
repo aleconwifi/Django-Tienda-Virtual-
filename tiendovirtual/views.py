@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import redirect
@@ -69,6 +69,9 @@ def login_view(request):
         if user:
             login(request, user)
             messages.success(request, 'Bienvenido {}'.format(user.username))
+            #si la peticion posee el parametro next hacemos un redirect
+            if request.GET.get('next'):
+                return HttpResponseRedirect(request.GET['next'] )
             return redirect('index')
         else:
             messages.error(request, 'Usuario o contraseña no validos')
